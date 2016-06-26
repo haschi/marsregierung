@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://butterfaces.larmic.de/components"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="WEB-INF/template.xhtml">
+    <ui:define name="content">
+        <div class="jumbotron">
+            <h1>Marsianisches Bürgerbüro</h1>
+            <p class="lead">Werden Sie noch heute marsianischer Staatsbürger und profitieren
+            Sie von den den vielen Vorteilen, die Sie daraus erhalten.</p>
+            <h:outputLink value="antrag.xhtml" styleClass="btn btn-primary btn-lg">Zum Staatsbürgerschaftsantrag</h:outputLink>
+            <br/>
+            <h:outputLink value="aktualisieren.xhtml" styleClass="btn btn-primary">Aktualisieren</h:outputLink>
+        </div>
+    </ui:define>
+</ui:composition>
+
+</html>
