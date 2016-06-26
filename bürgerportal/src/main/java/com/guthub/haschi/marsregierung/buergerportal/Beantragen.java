@@ -1,6 +1,7 @@
 package com.guthub.haschi.marsregierung.buergerportal;
 
 import com.github.haschi.marsregierung.staatsbuergerschaft.BeantrageStaatsbuergerschaft;
+import com.github.haschi.marsregierung.staatsbuergerschaft.ImmutableAdresse;
 import com.github.haschi.marsregierung.staatsbuergerschaft.ImmutableBeantrageStaatsbuergerschaft;
 import com.github.haschi.marsregierung.staatsbuergerschaft.ImmutableName;
 import org.axonframework.commandhandling.gateway.CommandGateway;
@@ -85,10 +86,12 @@ public class Beantragen implements Serializable {
 
         final BeantrageStaatsbuergerschaft beantrageStaatsbuergerschaft = ImmutableBeantrageStaatsbuergerschaft.builder()
             .name(ImmutableName.builder().vorname(vorname).nachname(nachname).build())
-            .strasse(straße)
-            .hausnummer(hausnummer)
-            .postleitzahl(postleitzahl)
-            .ort(ort)
+            .wohnanschrift(ImmutableAdresse.builder()
+                .strasse(straße)
+                .hausnummer(hausnummer)
+                .postleitzahl(postleitzahl)
+                .ort(ort)
+                .build())
             .emailAdresse(email)
             .build();
 
@@ -100,12 +103,14 @@ public class Beantragen implements Serializable {
     public String aktualisieren() {
         final BeantrageStaatsbuergerschaft beantrageStaatsbuergerschaft = ImmutableBeantrageStaatsbuergerschaft.builder()
             .name(ImmutableName.builder().vorname(vorname).nachname(nachname).build())
-            .strasse(straße)
-            .hausnummer(hausnummer)
-            .postleitzahl(postleitzahl)
-            .ort(ort)
-            .emailAdresse(email)
-            .build();
+                .wohnanschrift(ImmutableAdresse.builder()
+                    .strasse(straße)
+                    .hausnummer(hausnummer)
+                    .postleitzahl(postleitzahl)
+                    .ort(ort)
+                    .build())
+                .emailAdresse(email)
+                .build();
 
         this.commandGateway.sendAndWait(beantrageStaatsbuergerschaft);
 

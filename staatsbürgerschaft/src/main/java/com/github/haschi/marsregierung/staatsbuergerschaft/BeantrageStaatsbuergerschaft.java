@@ -3,11 +3,8 @@ package com.github.haschi.marsregierung.staatsbuergerschaft;
 import org.immutables.value.Value;
 
 @Value.Immutable
-public interface BeantrageStaatsbuergerschaft  {
+public interface BeantrageStaatsbuergerschaft {
     Name name();
-    String strasse();
-    String hausnummer();
-    String postleitzahl();
-    String ort();
+    Adresse wohnanschrift();
     String emailAdresse();
 }

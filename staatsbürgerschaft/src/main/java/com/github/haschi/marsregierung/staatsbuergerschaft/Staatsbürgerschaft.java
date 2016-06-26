@@ -15,14 +15,11 @@ public class Staatsbürgerschaft extends AbstractAnnotatedAggregateRoot<String> 
     protected Staatsbürgerschaft() {}
 
     @CommandHandler
-    public Staatsbürgerschaft(final ImmutableBeantrageStaatsbuergerschaft befehl) {
+    public Staatsbürgerschaft(final ImmutableStaatsbürgerschaftBeantragt befehl) {
         final ImmutableStaatsbürgerschaftBeantragt ereignis = ImmutableStaatsbürgerschaftBeantragt.builder()
-            .email(befehl.emailAdresse())
+            .email(befehl.email())
             .name(befehl.name())
-            .strasse(befehl.strasse())
-            .hausnummer(befehl.hausnummer())
-            .postleitzahl(befehl.postleitzahl())
-            .ort(befehl.ort())
+            .wohnanschrift(befehl.wohnanschrift())
             .build();
 
         this.apply(ereignis);
